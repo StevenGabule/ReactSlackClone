@@ -12,15 +12,7 @@ class Register extends Component {
         passwordConfirmation: "",
         errors: [],
         loading: false,
-        usersRef: firebase.database().ref('users'),
-    };
-
-    handleChange = e => {
-        this.setState({[e.target.name]: e.target.value})
-    };
-
-    isFormEmpty = ({username, email, password, passwordConfirmation}) => {
-        return !username.length || !email.length || !password.length || !passwordConfirmation.length;
+        usersRef: firebase.database().ref("users"),
     };
 
     isFormValid = () => {
@@ -39,10 +31,18 @@ class Register extends Component {
         }
     };
 
+    handleChange = e => {
+        this.setState({[e.target.name]: e.target.value})
+    };
+
+    isFormEmpty = ({username, email, password, passwordConfirmation}) => {
+        return !username.length || !email.length || !password.length || !passwordConfirmation.length;
+    };
+
     displayErrors = errors => errors.map((error, i) => <p key={i}>{error.message}</p>);
 
     handleInputErrors = (errors, inputName) => {
-       return errors.some(error => error.message.toLowerCase().includes(inputName)) ? 'error' : ''
+        return errors.some(error => error.message.toLowerCase().includes(inputName)) ? 'error' : ''
     };
 
     isPasswordValid = ({password, passwordConfirmation}) => {
@@ -53,8 +53,8 @@ class Register extends Component {
 
     saveUser = createdUser => {
         return this.state.usersRef.child(createdUser.user.uid).set({
-           name: createdUser.user.displayName,
-           avatar: createdUser.user.photoURL
+            name: createdUser.user.displayName,
+            avatar: createdUser.user.photoURL
         });
     };
 
@@ -103,13 +103,16 @@ class Register extends Component {
                                         placeholder={"Username"} value={username} onChange={this.handleChange}
                                         type={"text"}/>
                             <Form.Input fluid name={"email"} icon={"mail"} iconPosition={"left"}
-                                        placeholder={"Email Address"} value={email} className={this.handleInputErrors(errors, "email")} onChange={this.handleChange}
+                                        placeholder={"Email Address"} value={email}
+                                        className={this.handleInputErrors(errors, "email")} onChange={this.handleChange}
                                         type={"email"}/>
                             <Form.Input fluid name={"password"} icon={"lock"} iconPosition={"left"}
-                                        placeholder={"Password"} value={password} onChange={this.handleChange} className={this.handleInputErrors(errors, "password")}
+                                        placeholder={"Password"} value={password} onChange={this.handleChange}
+                                        className={this.handleInputErrors(errors, "password")}
                                         type={"password"}/>
                             <Form.Input fluid name={"passwordConfirmation"} icon={"repeat"} iconPosition={"left"}
-                                        placeholder={"Password confirmation"} value={passwordConfirmation} className={this.handleInputErrors(errors, "password")}
+                                        placeholder={"Password confirmation"} value={passwordConfirmation}
+                                        className={this.handleInputErrors(errors, "password")}
                                         onChange={this.handleChange} type={"password"}/>
                             <Button disabled={loading} className={loading ? 'loading' : ''} color={"orange"} fluid
                                     size={"large"}>Submit</Button>
