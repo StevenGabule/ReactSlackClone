@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee3a624e-18f6-42b9-86d5-4fc43edc237d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Spinner.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actions/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actions/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Auth/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Auth/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Auth/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Auth/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +84,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570892999585</updated>
-      <workItem from="1570893001307" duration="10173000" />
+      <workItem from="1570893001307" duration="14605000" />
     </task>
     <servers />
   </component>
