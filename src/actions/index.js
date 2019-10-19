@@ -9,7 +9,7 @@ export const setUser = user => {
     }
 };
 
-export const clearUsers = () => {
+export const clearUser = () => {
     return {
         type: actionTypes.CLEAR_USER
     };
@@ -23,4 +23,4 @@ export const setCurrentChannel = channel => {
             currentChannel: channel,
         }
     }
-}
+};
