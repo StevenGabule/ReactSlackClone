@@ -1,7 +1,7 @@
 import firebase from "../../firebase";
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
-import {setCurrentChannel} from "../../actions";
+import {setCurrentChannel, setPrivateChannel} from "../../actions";
 import {Menu, Icon, Modal, Form, Input, Button} from "semantic-ui-react";
 
 
@@ -87,6 +87,7 @@ class Channels extends Component {
     changeChannel = channel => {
         this.setActiveChannel(channel);
         this.props.setCurrentChannel(channel);
+        this.props.setPrivateChannel(false);
     };
 
     setActiveChannel = (channel) => {
@@ -106,7 +107,7 @@ class Channels extends Component {
         const {channels, modal} = this.state;
         return (
             <Fragment>
-                <Menu.Menu style={{paddingBottom: '2em'}}>
+                <Menu.Menu className={"menu"}>
                     <Menu.Item>
                         <span><Icon name={"exchange"}/> CHANNELS</span>{' '}
                         ({channels.length}) <Icon name={"add"} onClick={this.openModal}/>
@@ -144,4 +145,4 @@ class Channels extends Component {
     }
 }
 
-export default connect(null, {setCurrentChannel})(Channels);
+export default connect(null, {setCurrentChannel, setPrivateChannel})(Channels);
