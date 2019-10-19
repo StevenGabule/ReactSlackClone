@@ -10,6 +10,11 @@ html, body, .app {
     max-width: 100% !important;
 }
 
+.messages__progress {
+    height: 58vh;
+    overflow-y: scroll;
+}
+
 .message__form {
     position: fixed !important;
     bottom: 1em;
@@ -23,4 +28,13 @@ html, body, .app {
 .message__self {
    border-left: 2px solid orange;
     padding-left: 8px;
+}
+
+.message__image {
+    padding: 1em;
+}
+
+/*progressbar.js*/
+.progress__bar{
+    margin: 0.3em 0 0 0 !important;
 }
