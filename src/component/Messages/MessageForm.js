@@ -12,6 +12,7 @@ class MessageForm extends Component {
         uploadState: '',
         percentUploaded: 0,
         message: '',
+        typingRef: firebase.database().ref('typing'),
         loading: false,
         channel: this.props.currentChannel,
         user: this.props.currentUser,
@@ -46,7 +47,7 @@ class MessageForm extends Component {
 
     sendMessage = () => {
         const {getMessagesRef} = this.props;
-        const {message, channel} = this.state;
+        const {message, channel, typingRef, user} = this.state;
         if (message) {
             this.setState({loading: true});
             getMessagesRef()
@@ -54,8 +55,12 @@ class MessageForm extends Component {
                 .push()
                 .set(this.createMessage())
                 .then(() => {
-                this.setState({loading: false, message: '', errors: []});
-            }).catch(error => {
+                    this.setState({loading: false, message: '', errors: []});
+                    typingRef
+                        .child(channel.id)
+                        .child(user.uid)
+                        .remove()
+                }).catch(error => {
                 console.error(error);
                 this.setState({loading: false, errors: this.state.errors.concat(error)})
             })
@@ -117,6 +122,21 @@ class MessageForm extends Component {
         })
     };
 
+    handleKeyDown = () => {
+        const {message, typingRef, channel, user} = this.state;
+        if (message) {
+            typingRef
+                .child(channel.id)
+                .child(user.uid)
+                .set(user.displayName)
+        } else {
+            typingRef
+                .child(channel.id)
+                .child(user.uid)
+                .remove()
+        }
+    };
+
     render() {
         // prettier-ignore
         const {errors, message, loading, modal, uploadState, percentUploaded} = this.state;
@@ -125,6 +145,7 @@ class MessageForm extends Component {
                 <Input fluid
                        name={"message"}
                        onChange={this.handleChange}
+                       onKeyDown={this.handleKeyDown}
                        value={message}
                        style={{marginBottom: '0.7em'}}
                        label={<Button icon={'add'}/>}
@@ -154,7 +175,7 @@ class MessageForm extends Component {
                     modal={modal}
                     closeModal={this.closeModal}
                     uploadFile={this.uploadFile}/>
-                <ProgressBar uploadState={uploadState} percentUploaded={percentUploaded} />
+                <ProgressBar uploadState={uploadState} percentUploaded={percentUploaded}/>
             </Segment>
         );
     }

@@ -66,7 +66,7 @@ class Starred extends Component {
         return (
             <Menu.Menu className={"menu"}>
                 <Menu.Item>
-                    <span><Icon name={"exchange"}/> STARRED</span>{' '}
+                    <span><Icon name={"star"}/> STARRED</span>{' '}
                     ({starredChannels.length})
                 </Menu.Item>
                 {this.displayChannels(starredChannels)}

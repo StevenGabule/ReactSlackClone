@@ -13,7 +13,7 @@ class UserPanel extends Component {
         uploadedCroppedImage: "",
         storageRef: firebase.storage().ref(),
         userRef: firebase.auth().currentUser,
-        usersRef: firebase.database().ref("users"),
+        usersRef: firebase.database().ref('users'),
         metadata: {
             contentType: 'image/jpeg'
         }
