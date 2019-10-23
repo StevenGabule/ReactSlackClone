@@ -7,6 +7,7 @@ import MessagesHeader from "./MessagesHeader";
 import MessageForm from "./MessageForm";
 import Message from "./Message";
 import Typing from "./Typing";
+import Skeleton from "./Skeleton";
 
 
 class Messages extends Component {
@@ -38,6 +39,17 @@ class Messages extends Component {
             this.addUserStarsListeners(channel.id, user.uid);
         }
     }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.messagesEnd) {
+            this.scrollToBottom();
+        }
+    }
+
+    scrollToBottom = () => {
+        this.messagesEnd.scrollIntoView({behavior: 'smooth'});
+    }
+
 
     addUserStarsListeners = (channelId, userId) => {
         this.state.usersRef.child(userId).child('starred').once('value').then(data => {
@@ -211,13 +223,22 @@ class Messages extends Component {
         ))
     );
 
+    displayMessageSkeleton = loading =>
+        loading ? (
+            <React.Fragment>
+                {[...Array(10)].map((_, i) => (
+                    <Skeleton key={i}/>
+                ))}
+            </React.Fragment>
+        ) : null;
+
 
     render() {
         // prettier-ignore
         const {
             messagesRef, channel, user,
             messages, progressBar, numUniqueUsers,
-            searchResults, searchTerm, searchLoading, privateChannel, isChannelStarred, typingUsers
+            searchResults, searchTerm, searchLoading, privateChannel, isChannelStarred, typingUsers, messagesLoading
         } = this.state;
         return (
             <Fragment>
@@ -231,9 +252,13 @@ class Messages extends Component {
 
                 <Segment>
                     <Comment.Group className={progressBar ? 'messages__progress' : 'messages'}>
+                        {this.displayMessageSkeleton(messagesLoading)}
                         {searchTerm
                             ? this.displayMessages(searchResults) : this.displayMessages(messages)}
                         {this.displayTypingUsers(typingUsers)}
+                        <div ref={node => (this.messagesEnd = node)}>
+
+                        </div>
                     </Comment.Group>
                 </Segment>
 
