@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee3a624e-18f6-42b9-86d5-4fc43edc237d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/ColorPanel/ColorPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/ColorPanel/ColorPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Messages/MessageForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Messages/MessageForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Messages/Messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Messages/Messages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/SidePanel/Channels.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/SidePanel/Channels.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/SidePanel/DirectMessages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/SidePanel/DirectMessages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/SidePanel/Starred.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/SidePanel/Starred.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +28,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -86,7 +84,7 @@
       <workItem from="1571461514784" duration="13666000" />
       <workItem from="1571484149714" duration="15799000" />
       <workItem from="1571741798233" duration="20624000" />
-      <workItem from="1571800002983" duration="6357000" />
+      <workItem from="1571800002983" duration="8161000" />
     </task>
     <servers />
   </component>
