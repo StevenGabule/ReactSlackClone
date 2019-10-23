@@ -23,6 +23,13 @@ class MessageForm extends Component {
         emojiPicker: false,
     };
 
+    componentWillUnmount() {
+        if (this.state.uploadTask !== null) {
+            this.state.uploadTask.cancel();
+            this.setState({uploadTask: null})
+        }
+    }
+
     openModal = () => this.setState({modal: true});
 
     closeModal = () => this.setState({modal: false});
@@ -171,7 +178,6 @@ class MessageForm extends Component {
     };
 
 
-
     render() {
         // prettier-ignore
         const {errors, message, loading, modal, uploadState, percentUploaded, emojiPicker} = this.state;
@@ -188,7 +194,8 @@ class MessageForm extends Component {
                        onKeyDown={this.handleKeyDown}
                        value={message}
                        style={{marginBottom: '0.7em'}}
-                       label={<Button icon={emojiPicker ? "close" : "add"} content={emojiPicker ? "close" : null} onClick={this.handleTogglePicker} />}
+                       label={<Button icon={emojiPicker ? "close" : "add"} content={emojiPicker ? "close" : null}
+                                      onClick={this.handleTogglePicker}/>}
                        labelPosition={"left"}
                        className={errors.some(error => error.message.includes('message')) ? 'error' : ''}
                        placeholder={"Write your message"}/>
